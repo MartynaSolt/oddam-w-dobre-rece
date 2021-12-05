@@ -3,4 +3,61 @@
 .homefoursteps {
     height: 80vh;
     width: 100%;
+
+    .steps__title {
+        height: 25%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        p {
+            font-size: 2.375rem;
+            color: $darkgray;
+            margin: 2rem 0;
+        }
+    }
+
+    .steps__icons {
+        height: 45%;
+        width: 100%;
+        background-color: $lightgray;
+
+        .icons-container {
+            width: 60%;
+            height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            justify-content: space-between;
+
+            .column {
+                width: 15%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+
+                .icon {
+                    margin-bottom: 1rem;
+                }
+
+                .title {
+                    font-size: 1.125rem;
+                    color: $darkgray;
+                    padding-bottom: 1rem;
+                    border-bottom: 0.75px solid $gray;
+                }
+
+                .content {
+                    font-size: 1rem;
+                    color: $darkgray;
+                    padding-top: 1rem;
+                }
+            }
+        }
+    }
 }
