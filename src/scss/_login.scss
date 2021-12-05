@@ -1,8 +1,8 @@
-@import './settings/colors';
+@import './main.scss';
 
 .loginbar {
     width: 100vw;
-    height: 1.5rem;
+    height: 2.5rem;
     margin-top: 2rem;
     
     .login-container {
@@ -13,7 +13,7 @@
             justify-content: right;
             
             .login-item {
-                margin-left: 2rem;
+                margin-left: 0.5rem;
                 list-style-type: none;
                 
                 .log-links {

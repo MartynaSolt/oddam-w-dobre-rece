@@ -2,8 +2,53 @@
 
 .homethreecolumns {
     height: 40vh;
+    width: 100vw;
     background-image: url('../assets/assets/assets/3\ Columns\ Background@2x.png');
-    background-size: contain;
+    background-size: cover;
+
+    .threecolumns-container {
+        width: 85%;
+        height: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        
+        div {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+
+           .column {
+                width: 23%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                .column_number {
+                    font-size: 5rem;
+                    line-height: 0;
+                    color: $darkgray;
+                    margin-bottom: 2rem;
+                    padding-top: 5rem;
+                }
+
+                .column_title {
+                    text-transform: uppercase;
+                    font-size: 1.125rem;
+                    color: $darkgray;
+                    padding: 2rem 0;
+                }
+
+                .column_content {
+                    font-size: 1rem;
+                    color: $darkgray;
+                    text-align: center;
+                    line-height: 1.5rem;
+                }
+            } 
+        }
+        
+    }
     
-    top: -2rem;
 }
