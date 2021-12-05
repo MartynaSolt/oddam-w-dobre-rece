@@ -25,7 +25,7 @@ const HomeFourSteps = () => (
                 <div className="column">
                     <div className="icon"><img src={IconSecond} /></div>
                     <p className="title">Spakuj je</p>
-                    <p className="content">skorzystaj z worków na śmieci</p>
+                    <p className="content">skorzystaj <br />z worków na śmieci</p>
                 </div>
                 <div className="column">
                     <div className="icon"><img src={IconThird} /></div>
@@ -35,13 +35,13 @@ const HomeFourSteps = () => (
                 <div className="column">
                     <div className="icon"><img src={IconFourth} /></div>
                     <p className="title">Zamów kuriera</p>
-                    <p className="content">kurier przyjedzie w dogodnym terminie</p>
+                    <p className="content">kurier przyjedzie <br />w dogodnym terminie</p>
                 </div>
             </div>
         </div>
         <div className="steps__button">
-            <div className="">
-                <Link to="/logowanie" className="head-button">Oddaj <br />rzeczy</Link>
+            <div className="steps-button">
+                <Link to="/logowanie" className="button">Oddaj <br />rzeczy</Link>
             </div>
         </div>
     </div>

@@ -25,7 +25,7 @@
         background-color: $lightgray;
 
         .icons-container {
-            width: 60%;
+            width: 55%;
             height: 100%;
             margin-left: auto;
             margin-right: auto;
@@ -33,7 +33,7 @@
             justify-content: space-between;
 
             .column {
-                width: 15%;
+                width: 16%;
                 height: 100%;
                 display: flex;
                 flex-direction: column;
@@ -42,21 +42,45 @@
                 text-align: center;
 
                 .icon {
-                    margin-bottom: 1rem;
+                    margin-bottom: 0.5rem;
                 }
 
                 .title {
                     font-size: 1.125rem;
                     color: $darkgray;
-                    padding-bottom: 1rem;
+                    padding-bottom: 0.5rem;
                     border-bottom: 0.75px solid $gray;
+                    line-height: 1.5rem;
                 }
 
                 .content {
                     font-size: 1rem;
                     color: $darkgray;
                     padding-top: 1rem;
+                    line-height: 1rem;
                 }
+            }
+        }
+    }
+
+    .steps__button {
+        height: 25%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .steps-button {
+            border: 0.75px solid $gray;
+            padding: 1.5rem 5rem;
+            text-align: center;
+
+            .button {
+                text-decoration: none;
+                color: $darkgray;
+                text-transform: uppercase;
+                font-size: 2.25rem;
+                
             }
         }
     }
