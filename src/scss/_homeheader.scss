@@ -1,0 +1,58 @@
+@import './main.scss';
+
+.homeheader {
+    height: 100vh;
+    width: 100vw;
+    background-image: url('../assets/assets/assets/Home-Hero-Image.jpg');
+    background-repeat: no-repeat;
+    background-position: -30rem -10rem;
+
+    .header-content {
+        width: 85%;
+        height: 100%;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 44rem;
+            padding-bottom: 7rem;
+            
+            p {
+                font-size: 2.375rem;
+                font-weight: 400;
+                text-align: center;
+                color: $darkgray;
+                margin-bottom: 1.5rem;
+            }
+
+            div {
+                height: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .header__buttons {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                
+                .header-button {
+
+                    .head-button {
+                        width: 80%;
+                        text-decoration: none;
+                        text-align: center;
+                        color: $darkgray;
+                        text-transform: uppercase;
+                        font-size: 2.25rem;
+                        border: 0.75px solid $gray;
+                        padding: 0.5rem 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
