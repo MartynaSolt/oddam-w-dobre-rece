@@ -10,7 +10,7 @@ import IconFourth from '../assets/assets/assets/Icon-4.svg';
 import '../scss/_homefoursteps.scss';
 
 const HomeFourSteps = () => (
-    <div className="homefoursteps">
+    <div className="homefoursteps" id="ocochodzi">
         <div className="steps__title">
             <p>Wystarczą 4 proste kroki</p>
             <div><img src={Decoration} /></div>

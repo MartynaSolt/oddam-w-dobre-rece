@@ -8,7 +8,7 @@ import HomeHelp from './HomeHelp';
 import HomeContact from './HomeContact';
 
 const Home = () => (
-    <div>
+    <div id="/">
         <HomeHeader />
         <HomeThreeColumns />
         <HomeFourSteps />
