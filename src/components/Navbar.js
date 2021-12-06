@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from "react-scroll";
 
-
-import HomeFourSteps from "./HomeFourSteps";
-
-
 import '../scss/main.scss';
 import '../scss/_navbar.scss';
 import Home from "./Home";
+import HomeAboutUs from "./HomeAboutUs";
+import HomeFourSteps from "./HomeFourSteps";
+
 
 const Navbar = () => (
         <nav className="navbar">
@@ -20,7 +19,7 @@ const Navbar = () => (
                                         <Link to="ocochodzi" smooth className="nav-links" element={<HomeFourSteps />} >O co chodzi?</Link>
                                 </li>
                                 <li className="nav-item">
-                                        <Link to="/onas" className="nav-links">O nas</Link>
+                                        <Link to="onas" smooth className="nav-links" element={<HomeAboutUs />} >O nas</Link>
                                 </li>
                                 <li className="nav-item">
                                         <Link to="/partnerzy" className="nav-links">Fundacja i organizacje</Link>

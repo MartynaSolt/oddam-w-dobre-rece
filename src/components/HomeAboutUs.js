@@ -6,7 +6,7 @@ import Signature from '../assets/assets/assets/Signature.svg';
 import '../scss/_homeaboutus.scss';
 
 const HomeAboutUs = () => (
-    <div className="homeaboutus">
+    <div className="homeaboutus" id="onas">
         <div className="aboutus_section">
             <div className="aboutus_content">
                 <div className="content-container">
