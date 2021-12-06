@@ -1,1 +1,28 @@
 @import './main.scss';
+
+.homeaboutus {
+    height: 95vh;
+    width: 100%;
+
+    .aboutus_section {
+        height: 100%;
+        width: 100%;
+        display: flex;
+
+        .aboutus_content {
+            height: 100%;
+            width: 50%;
+            background-color: $lightgray;
+
+        }
+
+        .aboutus-photo {
+            height: 100%;
+            width: 50%;
+            background-image: url('../assets/assets/assets/People.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+    }
+}
