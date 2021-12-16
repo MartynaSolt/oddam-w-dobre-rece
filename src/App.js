@@ -5,7 +5,6 @@ import {Route, BrowserRouter as Router, HashRouter, Routes, Switch, Link, NavLin
 import Home from './components/Home.js';
 import Navbar from './components/Navbar.js';
 import Login from './components/Login.js';
-import Footer from './components/Footer.js';
 import './scss/main.scss';
 
 
@@ -18,7 +17,6 @@ const App = () => (
         <Routes>
           <Route exact path='/' element={<Home />} />
         </Routes>
-        <Footer />
       </div>
     </Router>
 );
