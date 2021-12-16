@@ -8,6 +8,7 @@ import '../scss/_homecontactfooter.scss';
 
 const HomeContactFooter = () => (
     <div className="contactfooter">
+        <div className="opacity">
             <div className="contactfooter-container">
                 <div className="contact">
                     <p>Skontaktuj się z nami!</p>
@@ -51,6 +52,7 @@ const HomeContactFooter = () => (
                     </div>
                 </div>
             </div>
+        </div>    
     </div>
 );
 
