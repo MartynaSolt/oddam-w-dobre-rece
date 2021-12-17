@@ -1,0 +1,140 @@
+@import './main.scss';
+
+.homehelp {
+    height: 100vh;
+    width: 100vw;
+    margin-top: 5rem;
+
+    .help-container {
+        height: 100%;
+        width: 60%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        align-items: center;
+
+        .help-title {
+            font-size: 2.375rem;
+            line-height: 3rem;
+            font-weight: 400;
+            color: $darkgray;
+            margin-bottom: 1.5rem;
+        }
+
+        .decoration {
+            height: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .help_buttons {
+            width: 70%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+
+            button {
+                font-size: 1.5rem;
+                color: $darkgray;
+                background-color: $white;
+                border: 0.75px solid $white;
+                padding: 0.5rem 2.5rem;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+
+                &:focus {
+                    border: 0.75px solid $darkgray;
+                    transition: 0.6s ease;
+                }
+            }
+        }
+
+        .help_content {
+            width: 100%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .help_description {
+                width: 52%;
+                margin-bottom: 2rem;
+
+                p {
+                    font-size: 1.375rem;
+                    color: $darkgray;
+                    text-align: center;
+                    line-height: 1.75rem;
+                }
+                
+            }
+
+            .content {
+                width: 100%;
+                height: 60%;
+                margin-top: 2rem;
+
+                .content_list {
+                    width: 100%;
+                    height: 100%;
+
+                    .content_item {
+                        width: 100%;
+                        border-bottom: 0.75px solid $gray;
+                        padding-bottom: 1.5rem;
+
+                        .top {
+                            display: flex;
+                            justify-content: space-between;
+
+                            .name {
+                                font-size: 1.625rem;
+                                color: $darkgray;
+                            }
+
+                            .things {
+                                font-size: 1.125rem;
+                                font-weight: 300;
+                                color: $darkgray;
+                                display: flex;
+                                align-items: flex-end;
+                            }
+                        }
+
+                        .bottom {
+
+                            .idea {
+                                font-size: 1.125rem;
+                                line-height: 1.75rem;
+                                font-weight: 400;
+                                color: $darkgray;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .pagination_buttons {
+                width: 20%;
+                margin-top: 3rem;
+                display: flex;
+                justify-content: space-between;
+                font-size: 1.125rem;
+                line-height: 1.75rem;
+                font-weight: 400;
+                color: $darkgray;
+
+                a {
+                    padding: 1rem;
+                    cursor: pointer;
+                    border: 0.75px solid $gray;
+                }
+            }
+
+            .pagination_previous, .pagination_next {
+                display: none;
+            }
+        }
+    }
+}

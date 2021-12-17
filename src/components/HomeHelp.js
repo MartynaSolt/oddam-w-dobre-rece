@@ -40,19 +40,21 @@ const HomeHelp = () => {
     return (
         <div className="homehelp">
             <div className="help-container">
-                <p>Komu pomagamy?</p>
+                <p className="help-title">Komu pomagamy?</p>
                 <div className="decoration"><img src={Decoration} /></div>
                 <div className="help_buttons">
                     <button>Fundacjom</button>
-                    <button>Organizacjom pozarządowym</button>
-                    <button>Lokalnym zbiórkom</button>
+                    <button>Organizacjom<br />pozarządowym</button>
+                    <button>Lokalnym<br />zbiórkom</button>
                 </div>
                 <div className="help_content">
-                    <p>W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić, czym się zajmują, komu pomagają i czego potrzebują.</p>
+                    <div className="help_description">
+                        <p>W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić, czym się zajmują, komu pomagają i czego potrzebują.</p>
+                    </div>
                     {displayFunds}
                     <ReactPaginate
-                        previousLabel=""
-                        nextLabel=""
+                        previousClassName="pagination_previous"
+                        nextClassName="pagination_next"
                         pageCount={pageCount}
                         onPageChange={changePage}
                         containerClassName={"pagination_buttons"}
