@@ -41,6 +41,7 @@
 
                     p {
                         font-size: 2.375rem;
+                        font-family: $font-base;
                         line-height: 3rem;
                         font-weight: 400;
                         color: $darkgray;
@@ -50,6 +51,17 @@
                     .decoration {
                         height: 2rem;
                         margin-bottom: 7rem;
+                    }
+
+                    .form {
+                        width: 60%;
+                        display: flex;
+                        justify-content: center;
+
+                        form {
+                            // width: 100%;
+                            
+                        }
                     }
                 }
             }
