@@ -41,7 +41,6 @@
 
                     p {
                         font-size: 2.375rem;
-                        font-family: $font-base;
                         line-height: 3rem;
                         font-weight: 400;
                         color: $darkgray;
@@ -50,17 +49,93 @@
 
                     .decoration {
                         height: 2rem;
-                        margin-bottom: 7rem;
+                        margin-bottom: 3rem;
                     }
 
                     .form {
                         width: 60%;
-                        display: flex;
-                        justify-content: center;
+                        height: 50%;
 
-                        form {
-                            // width: 100%;
-                            
+                        .form_name-email {
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-between;
+
+                            .form_name, .form_email {
+                                width: 100%;
+                                display: flex;
+                                flex-direction: column;
+
+                                label {
+                                    font-size: 1rem;
+                                    font-weight: 600;
+                                    line-height: 2rem;
+                                    color: $darkgray;
+                                    padding-bottom: 1rem;
+                                }
+
+                                input {
+                                    outline: none;
+                                    box-sizing: border-box;
+                                    width: 95%;
+                                    padding: 0 5px;
+                                    border: none;
+                                    border-bottom: 0.75px solid $gray;
+                                    line-height: 2rem;
+                                    font-size: 1rem;
+                                    font-weight: 400;
+                                    color: $darkgray;
+                                }
+                            }
+                        }
+
+                        .form_message {
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            margin-top: 2rem;
+
+                            label {
+                                font-size: 1rem;
+                                font-weight: 600;
+                                line-height: 2rem;
+                                color: $darkgray;
+                                padding-bottom: 1rem; 
+                            }
+
+                            textarea {
+                                resize: none;
+                                outline: none;
+                                border: none;
+                                height: 6rem;
+                                border-bottom: 0.75px solid $gray;
+                                line-height: 1.5rem;
+                                font-size: 1rem;
+                                font-weight: 400;
+                                color: $darkgray;
+                            }
+                        }
+
+                        .form_submit {
+                            margin-top: 2rem;
+                            width: 100%;
+                            display: flex;
+                            justify-content: right;
+
+                            .form_button {
+                                font-size: 1.125rem;
+                                color: $darkgray;
+                                background-color: $white;
+                                border: 0.75px solid $gray;
+                                padding: 0.75rem 2.5rem;
+
+                                &:hover {
+                                    background-color: $lightgray;
+                                    border: 0.75px solid $lightgray;
+                                    box-shadow: 5px 5px 10px $gray;
+                                    transition: 0.8s ease-out;
+                                }
+                            }
                         }
                     }
                 }

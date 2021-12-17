@@ -39,6 +39,9 @@ const HomeContactFooter = () => (
                                             id="message">
                                         </textarea>
                                     </div>
+                                    <div className="form_submit">
+                                        <button className="form_button">Wyślij</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
