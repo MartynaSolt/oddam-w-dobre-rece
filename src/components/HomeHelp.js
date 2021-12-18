@@ -38,7 +38,7 @@ const HomeHelp = () => {
     };
 
     return (
-        <div className="homehelp">
+        <div className="homehelp" id="fundacje">
             <div className="help-container">
                 <p className="help-title">Komu pomagamy?</p>
                 <div className="decoration"><img src={Decoration} /></div>

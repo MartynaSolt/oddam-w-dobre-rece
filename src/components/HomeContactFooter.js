@@ -7,7 +7,7 @@ import Instagram from '../assets/assets/assets/Instagram.svg';
 import '../scss/_homecontactfooter.scss';
 
 const HomeContactFooter = () => (
-    <div className="contactfooter">
+    <div className="contactfooter" id="kontakt">
         <div className="opacity">
             <div className="contactfooter-container">
                 <div className="contact">

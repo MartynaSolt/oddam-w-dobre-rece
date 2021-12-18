@@ -5,7 +5,9 @@ import '../scss/main.scss';
 import '../scss/_navbar.scss';
 import Home from "./Home";
 import HomeAboutUs from "./HomeAboutUs";
+import HomeContactFooter from "./HomeContactFooter";
 import HomeFourSteps from "./HomeFourSteps";
+import HomeHelp from "./HomeHelp";
 
 
 const Navbar = () => (
@@ -22,10 +24,10 @@ const Navbar = () => (
                                         <Link to="onas" smooth className="nav-links" element={<HomeAboutUs />} >O nas</Link>
                                 </li>
                                 <li className="nav-item">
-                                        <Link to="/partnerzy" className="nav-links">Fundacja i organizacje</Link>
+                                        <Link to="fundacje" smooth className="nav-links" element={<HomeHelp />}>Fundacja i organizacje</Link>
                                 </li>
                                 <li className="nav-item">
-                                        <Link to="/kontakt" className="nav-links">Kontakt</Link>
+                                        <Link to="kontakt" smooth className="nav-links" element={<HomeContactFooter />}>Kontakt</Link>
                                 </li>
                         </ul>
                 </div>          
