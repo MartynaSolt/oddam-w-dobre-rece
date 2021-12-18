@@ -50,7 +50,7 @@ const HomeContactFooter = () => (
                 <div className="footer">
                     <div className="footer-container">
                         <p>Copyright by Coders Lab</p>
-                        <div>
+                        <div className="footer_icons">
                             <img src={Facebook} />
                             <img src={Instagram} />
                         </div>
