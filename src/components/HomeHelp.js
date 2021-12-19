@@ -10,6 +10,19 @@ import Decoration from '../assets/assets/assets/Decoration.svg';
 import '../scss/_homehelp.scss';
 
 const HomeHelp = () => {
+    const [isActive, setActive] = useState("false");
+
+    const handleToggle = (e) => {
+        setActive(!isActive);
+
+        let classes = 'help_button';
+        let els = document.getElementsByClassName('help_button active');
+        if (els) {
+            els[0].classList.remove('active')
+        }
+        e.target.className = classes.replace('help_button','help_button active');
+    };
+
     const [funds, setFunds] =  useState(JsonDataFundations.slice(0, 9));
     const [org, setOrg] = useState(JsonDataOrganizations.slice(0, 6));
     const [raising, setRaising] = useState(JsonDataFundraising.slice(0, 3));
@@ -85,9 +98,9 @@ const HomeHelp = () => {
                 <p className="help-title">Komu pomagamy?</p>
                 <div className="decoration"><img src={Decoration} /></div>
                 <div className="help_buttons">
-                    <button>Fundacjom</button>
-                    <button>Organizacjom<br />pozarządowym</button>
-                    <button>Lokalnym<br />zbiórkom</button>
+                    <button onClick={handleToggle} className="help_button active">Fundacjom</button>
+                    <button onClick={handleToggle} className="help_button">Organizacjom<br />pozarządowym</button>
+                    <button onClick={handleToggle} className="help_button">Lokalnym<br />zbiórkom</button>
                 </div>
                 <div className="help_content">
                     <div className="help_description">
