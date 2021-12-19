@@ -16,9 +16,9 @@ const HomeHelp = () => {
         setActive(!isActive);
 
         let classes = 'help_button';
-        let els = document.getElementsByClassName('help_button active');
-        if (els) {
-            els[0].classList.remove('active')
+        let buttons = document.getElementsByClassName('help_button active');
+        if (buttons) {
+            buttons[0].classList.remove('active')
         }
         e.target.className = classes.replace('help_button','help_button active');
     };
@@ -32,9 +32,14 @@ const HomeHelp = () => {
     const fundsPerPage = 3
     const pagesVisited = pageNumber * fundsPerPage
 
-    const displayFunds = funds
-        .slice(pagesVisited, pagesVisited + fundsPerPage)
-        .map((fund) => (
+    const displayContent = () => {
+        let buttonFunds = document.getElementById("fundacje");
+        let buttonOrg = document.getElementById("organizacje");
+
+        if (buttonFunds.className === "active") {
+            funds
+            .slice(pagesVisited, pagesVisited + fundsPerPage)
+            .map((fund) => (
             <div className="content">
                 <div className="content_list">
                     <div className="content_item">
@@ -48,11 +53,11 @@ const HomeHelp = () => {
                     </div>
                 </div>
             </div>
-        ));
-
-    const displayOrg = org
-        .slice(pagesVisited, pagesVisited + fundsPerPage)
-        .map((org) => (
+            ));
+        } else if (buttonOrg.className === "active") {
+            org
+            .slice(pagesVisited, pagesVisited + fundsPerPage)
+            .map((org) => (
             <div className="content">
                 <div className="content_list">
                     <div className="content_item">
@@ -66,11 +71,11 @@ const HomeHelp = () => {
                     </div>
                 </div>
             </div>
-        ));
-        
-        const displayRaising = raising
-        .slice(pagesVisited, pagesVisited + fundsPerPage)
-        .map((raising) => (
+            ));
+        } else {
+            raising
+            .slice(pagesVisited, pagesVisited + fundsPerPage)
+            .map((raising) => (
             <div className="content">
                 <div className="content_list">
                     <div className="content_item">
@@ -84,7 +89,15 @@ const HomeHelp = () => {
                     </div>
                 </div>
             </div>
-        ));     
+            ));
+        } 
+    }
+
+    // const displayFunds = 
+
+    // const displayOrg = 
+        
+    // const displayRaising =      
 
     const pageCount = Math.ceil(funds.length / fundsPerPage);
 
@@ -98,15 +111,15 @@ const HomeHelp = () => {
                 <p className="help-title">Komu pomagamy?</p>
                 <div className="decoration"><img src={Decoration} /></div>
                 <div className="help_buttons">
-                    <button onClick={handleToggle} className="help_button active">Fundacjom</button>
-                    <button onClick={handleToggle} className="help_button">Organizacjom<br />pozarządowym</button>
-                    <button onClick={handleToggle} className="help_button">Lokalnym<br />zbiórkom</button>
+                    <button id="fundacje" onClick={handleToggle} className="help_button active">Fundacjom</button>
+                    <button id="organizacje" onClick={handleToggle} className="help_button">Organizacjom<br />pozarządowym</button>
+                    <button id="zbiorki" onClick={handleToggle} className="help_button">Lokalnym<br />zbiórkom</button>
                 </div>
                 <div className="help_content">
                     <div className="help_description">
                         <p>W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić, czym się zajmują, komu pomagają i czego potrzebują.</p>
                     </div>
-                    {displayFunds}
+                    {displayContent}
                     <ReactPaginate
                         previousClassName="pagination_previous"
                         nextClassName="pagination_next"
