@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import JsonDataFundations from '../FUNDACJE_DATA.json';
 import JsonDataOrganizations from '../ORGANIZACJE_DATA.json';
 import JsonDataFundraising from '../FUNDACJE_DATA.json';
@@ -10,96 +10,42 @@ import Decoration from '../assets/assets/assets/Decoration.svg';
 import '../scss/_homehelp.scss';
 
 const HomeHelp = () => {
-    const [isActive, setActive] = useState("false");
+    const [data, setData] = useState([]);
+    const [current, setCurrent] = useState("fundacje");
 
     const handleToggle = (e) => {
-        setActive(!isActive);
-
-        let classes = 'help_button';
-        let buttons = document.getElementsByClassName('help_button active');
-        if (buttons) {
-            buttons[0].classList.remove('active')
-        }
-        e.target.className = classes.replace('help_button','help_button active');
+        const {id} = e.target
+        setCurrent(id);
+        setPageNumber(0)
     };
 
-    const [funds, setFunds] =  useState(JsonDataFundations.slice(0, 9));
-    const [org, setOrg] = useState(JsonDataOrganizations.slice(0, 6));
-    const [raising, setRaising] = useState(JsonDataFundraising.slice(0, 3));
+    useEffect(() => {
+        switch (current) {
+            case "fundacje": {
+                setData(JsonDataFundations);
+                break;
+            }
+               
+            case "organizacje": {
+                setData(JsonDataOrganizations);
+                break;
+            }
+            
+            case "zbiorki": {
+                setData(JsonDataFundraising);
+                break;
+            }
+        }
+
+    }, [current])
+
     
     const [pageNumber, setPageNumber] = useState(0);
 
-    const fundsPerPage = 3
-    const pagesVisited = pageNumber * fundsPerPage
+    const fundsPerPage = 3   
 
-    const displayContent = () => {
-        let buttonFunds = document.getElementById("fundacje");
-        let buttonOrg = document.getElementById("organizacje");
-
-        if (buttonFunds.className === "active") {
-            funds
-            .slice(pagesVisited, pagesVisited + fundsPerPage)
-            .map((fund) => (
-            <div className="content">
-                <div className="content_list">
-                    <div className="content_item">
-                        <div className="top">
-                            <p className="name">{fund.name}</p>
-                            <p className="things">{fund.things}</p>
-                        </div>
-                        <div className="bottom">
-                            <p className="idea">{fund.idea}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            ));
-        } else if (buttonOrg.className === "active") {
-            org
-            .slice(pagesVisited, pagesVisited + fundsPerPage)
-            .map((org) => (
-            <div className="content">
-                <div className="content_list">
-                    <div className="content_item">
-                        <div className="top">
-                            <p className="name">{org.name}</p>
-                            <p className="things">{org.things}</p>
-                        </div>
-                        <div className="bottom">
-                            <p className="idea">{org.idea}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            ));
-        } else {
-            raising
-            .slice(pagesVisited, pagesVisited + fundsPerPage)
-            .map((raising) => (
-            <div className="content">
-                <div className="content_list">
-                    <div className="content_item">
-                        <div className="top">
-                            <p className="name">{raising.name}</p>
-                            <p className="things">{raising.things}</p>
-                        </div>
-                        <div className="bottom">
-                            <p className="idea">{raising.idea}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            ));
-        } 
-    }
-
-    // const displayFunds = 
-
-    // const displayOrg = 
-        
-    // const displayRaising =      
-
-    const pageCount = Math.ceil(funds.length / fundsPerPage);
+    const pageCount = Math.ceil(data.length / fundsPerPage);
+    const paginatedData = data?.slice(pageNumber, pageNumber + 3)
 
     const changePage = ({selected}) => {
         setPageNumber(selected);
@@ -119,7 +65,21 @@ const HomeHelp = () => {
                     <div className="help_description">
                         <p>W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić, czym się zajmują, komu pomagają i czego potrzebują.</p>
                     </div>
-                    {displayContent}
+                    {paginatedData?.map((fund) => (
+                        <div className="content">
+                            <div className="content_list">
+                                <div className="content_item">
+                                    <div className="top">
+                                        <p className="name">{fund.name}</p>
+                                        <p className="things">{fund.things}</p>
+                                    </div>
+                                    <div className="bottom">
+                                        <p className="idea">{fund.idea}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                     <ReactPaginate
                         previousClassName="pagination_previous"
                         nextClassName="pagination_next"
