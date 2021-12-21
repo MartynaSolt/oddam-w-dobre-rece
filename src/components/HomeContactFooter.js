@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { Axios } from 'axios';
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+// import { messageSchema } from '../validations/ContactValidation';
+import * as yup from "yup";
 
 import Decoration from '../assets/assets/assets/Decoration.svg';
 import Facebook from '../assets/assets/assets/Facebook.svg';
@@ -7,33 +10,22 @@ import Instagram from '../assets/assets/assets/Instagram.svg';
 
 import '../scss/_homecontactfooter.scss';
 
+const messageSchema = yup.object().shape({
+    firstName: yup.string().required("Podane imię jest nieprawidłowe"),
+    email: yup.string().email().required("Podany email jest nieprawidłowy!"),
+    message: yup.string().min(120).required("Wiadomość musi mieć conajmniej 120 znaków!")
+});
+
 const HomeContactFooter = () => {
     const url = "https://fer-api.coderslab.pl/v1/portfolio/contact";
 
-    const [data, setData] = useState({
-        name: "",
-        email: "",
-        message: ""
-    })
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        resolver: yupResolver(messageSchema),
+    });
 
-    const submit = (e) => {
-        e.preventDefault();
-        Axios.post(url,{
-            name: data.name,
-            email: data.email,
-            message: data.message
-        })
-            .then(res => {
-                console.log(res.data)
-            })
-    }
-
-    const handle = (e) => {
-        const newdata = {...data}
-        newdata[e.target.id] = e.target.value
-        setData(newdata)
-        console.log(newdata)
-    }
+    const submitForm = (data) => {
+        console.log(data);
+    };
 
     return (
         <div className="contactfooter" id="kontakt">
@@ -44,35 +36,41 @@ const HomeContactFooter = () => {
                             <p>Skontaktuj się z nami!</p>
                             <div className="decoration"><img src={Decoration} /></div>
                             <div className="form">
-                                <form onSubmit={(e) => submit(e)}>
+                                <form onSubmit={handleSubmit(submitForm)}>
                                     <div className="form_container">
                                         <div className="form_name-email">
                                             <div className="form_name">
-                                                <label htmlFor="name">Wpisz swoje imię</label>
-                                                <input 
-                                                    onChange={(e) => handle(e)}
-                                                    type="text" 
-                                                    id="name"
-                                                    value={data.name}>
+                                                <label htmlFor="firstName">Wpisz swoje imię</label>
+                                                <input
+                                                    type="text"
+                                                    name="firstName"
+                                                    ref={register("firstName", {
+                                                        required: "Required",
+                                                      })}>
                                                 </input>
+                                                <p> {errors.firstName} </p>
                                             </div>
                                             <div className="form_email">
                                                 <label htmlFor="email">Wpisz swój email</label>
-                                                <input 
-                                                    onChange={(e) => handle(e)}
-                                                    type="text" 
-                                                    id="email"
-                                                    value={data.email}>
+                                                <input
+                                                    type="text"
+                                                    name="email"
+                                                    ref={register("email", {
+                                                        required: "Required",
+                                                      })}>
                                                 </input>
+                                                <p> {errors.email?.message} </p>
                                             </div>
                                         </div>
                                         <div className="form_message">
                                             <label htmlFor="message">Wpisz swoją wiadomość</label>
-                                            <textarea
-                                                onChange={(e) => handle(e)}  
+                                            <textarea  
                                                 id="message"
-                                                value={data.message}>
+                                                ref={register("message", {
+                                                    required: "Required",
+                                                  })}>
                                             </textarea>
+                                            <p> {errors.message?.message} </p>
                                         </div>
                                         <div className="form_submit">
                                             <button className="form_button">Wyślij</button>
