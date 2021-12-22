@@ -10,11 +10,12 @@ import Instagram from '../assets/assets/assets/Instagram.svg';
 
 import '../scss/_homecontactfooter.scss';
 
-const messageSchema = yup.object().shape({
-    firstName: yup.string().required("Podane imię jest nieprawidłowe"),
-    email: yup.string().email().required("Podany email jest nieprawidłowy!"),
-    message: yup.string().min(120).required("Wiadomość musi mieć conajmniej 120 znaków!")
-});
+const messageSchema = yup.object({
+    firstName: yup.string().required("Imię jest wymagane!"),
+    email: yup.string().email().required("Email jest wymagany!"),
+    message: yup.string().min(120).required("Wiadomość jest wymagana!"),
+}).required();
+    
 
 const HomeContactFooter = () => {
     const url = "https://fer-api.coderslab.pl/v1/portfolio/contact";
@@ -22,7 +23,7 @@ const HomeContactFooter = () => {
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(messageSchema),
     });
-
+    
     const submitForm = (data) => {
         console.log(data);
     };
@@ -44,33 +45,27 @@ const HomeContactFooter = () => {
                                                 <input
                                                     type="text"
                                                     name="firstName"
-                                                    ref={register("firstName", {
-                                                        required: "Required",
-                                                      })}>
+                                                    {...register("firstName")}>
                                                 </input>
-                                                <p> {errors.firstName} </p>
+                                                <p>{errors.firstName && "Podane imię jest nieprawidłowe!"}</p>
                                             </div>
                                             <div className="form_email">
                                                 <label htmlFor="email">Wpisz swój email</label>
                                                 <input
                                                     type="text"
                                                     name="email"
-                                                    ref={register("email", {
-                                                        required: "Required",
-                                                      })}>
+                                                    {...register("email")}>
                                                 </input>
-                                                <p> {errors.email?.message} </p>
+                                                <p> {errors.email && "Podany email jest nieprawidłowy!"} </p>
                                             </div>
                                         </div>
                                         <div className="form_message">
                                             <label htmlFor="message">Wpisz swoją wiadomość</label>
                                             <textarea  
                                                 id="message"
-                                                ref={register("message", {
-                                                    required: "Required",
-                                                  })}>
+                                                {...register("message")}>
                                             </textarea>
-                                            <p> {errors.message?.message} </p>
+                                            <p> {errors.message && "Wiadomość musi mieć conajmniej 120 znaków!"} </p>
                                         </div>
                                         <div className="form_submit">
                                             <button className="form_button">Wyślij</button>
