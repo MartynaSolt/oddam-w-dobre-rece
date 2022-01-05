@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-scroll";
+import { Link as RouterLink } from 'react-router-dom'
 
 import '../scss/main.scss';
 import '../scss/_navbar.scss';
@@ -15,7 +16,7 @@ const Navbar = () => (
                 <div className="navbar-container">
                         <ul>
                                 <li className="nav-item">
-                                        <Link to="/" className="nav-links" element={<Home />} >Start</Link>
+                                        <RouterLink to="/" className="nav-links">Start</RouterLink>
                                 </li>
                                 <li className="nav-item">
                                         <Link to="ocochodzi" smooth className="nav-links" element={<HomeFourSteps />} >O co chodzi?</Link>

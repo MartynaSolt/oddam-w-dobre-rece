@@ -11,7 +11,7 @@ import Instagram from '../assets/assets/assets/Instagram.svg';
 import '../scss/_homecontactfooter.scss';
 
 const messageSchema = yup.object({
-    firstName: yup.string().required("Imię jest wymagane!"),
+    name: yup.string().required("Imię jest wymagane!"),
     email: yup.string().email().required("Email jest wymagany!"),
     message: yup.string().min(120).required("Wiadomość jest wymagana!"),
 }).required();
@@ -26,6 +26,16 @@ const HomeContactFooter = () => {
     
     const submitForm = (data) => {
         console.log(data);
+        window.fetch(url, {
+            method: "POST",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(res => console.log(res))
+
     };
 
     return (
@@ -41,11 +51,11 @@ const HomeContactFooter = () => {
                                     <div className="form_container">
                                         <div className="form_name-email">
                                             <div className="form_name">
-                                                <label htmlFor="firstName">Wpisz swoje imię</label>
+                                                <label htmlFor="name">Wpisz swoje imię</label>
                                                 <input
                                                     type="text"
-                                                    name="firstName"
-                                                    {...register("firstName")}>
+                                                    name="name"
+                                                    {...register("name")}>
                                                 </input>
                                                 <p>{errors.firstName && "Podane imię jest nieprawidłowe!"}</p>
                                             </div>
