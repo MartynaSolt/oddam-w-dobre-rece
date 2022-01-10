@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 // import { messageSchema } from '../validations/ContactValidation';
@@ -20,10 +20,10 @@ const messageSchema = yup.object({
 const HomeContactFooter = () => {
     const url = "https://fer-api.coderslab.pl/v1/portfolio/contact";
 
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const { register, reset, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(messageSchema),
     });
-    
+  
     const submitForm = (data) => {
         console.log(data);
         window.fetch(url, {
@@ -35,7 +35,7 @@ const HomeContactFooter = () => {
         })
         .then(res => res.json())
         .then(res => console.log(res))
-
+        reset();
     };
 
     return (
