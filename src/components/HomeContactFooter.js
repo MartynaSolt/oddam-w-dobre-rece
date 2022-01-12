@@ -20,7 +20,7 @@ const messageSchema = yup.object({
 const HomeContactFooter = () => {
     const url = "https://fer-api.coderslab.pl/v1/portfolio/contact";
 
-    const { register, reset, handleSubmit, formState: { errors } } = useForm({
+    const { register, reset, handleSubmit,  formState: { errors, isSubmitSuccessful, ...formState } } = useForm({
         resolver: yupResolver(messageSchema),
     });
   
@@ -35,8 +35,15 @@ const HomeContactFooter = () => {
         })
         .then(res => res.json())
         .then(res => console.log(res))
-        reset();
+        // console.log("isSubmitSuccessful", isSubmitSuccessful);
+        // reset();
     };
+
+    // useEffect(() => {
+    //     if (formState.isSubmitSuccessful === true) {
+    //       // do the your logic here
+    //     }
+    //   }, [formState]);
 
     return (
         <div className="contactfooter" id="kontakt">
@@ -46,6 +53,9 @@ const HomeContactFooter = () => {
                         <div className="contact_container">
                             <p>Skontaktuj się z nami!</p>
                             <div className="decoration"><img src={Decoration} /></div>
+                            {isSubmitSuccessful && (
+                            <div className="success">Wiadomość została wysłana! Wkrótce się skontaktujemy.</div>
+                            )}
                             <div className="form">
                                 <form onSubmit={handleSubmit(submitForm)}>
                                     <div className="form_container">
@@ -78,7 +88,7 @@ const HomeContactFooter = () => {
                                             <p> {errors.message && "Wiadomość musi mieć conajmniej 120 znaków!"} </p>
                                         </div>
                                         <div className="form_submit">
-                                            <button className="form_button">Wyślij</button>
+                                            <button disabled={isSubmitSuccessful} className="form_button">Wyślij</button>
                                         </div>
                                     </div>
                                 </form>
