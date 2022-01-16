@@ -52,7 +52,7 @@ const HomeContactFooter = () => {
                             <p>Skontaktuj się z nami!</p>
                             <div className="decoration"><img src={Decoration} /></div>
                             {isSubmitSuccessful && (
-                            <div className="success">Wiadomość została wysłana! Wkrótce się skontaktujemy.</div>
+                            <div className="success">Wiadomość została wysłana! <br />Wkrótce się skontaktujemy.</div>
                             )}
                             <div className="form">
                                 <form onSubmit={handleSubmit(submitForm)}>
