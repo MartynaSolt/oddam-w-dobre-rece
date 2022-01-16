@@ -35,15 +35,13 @@ const HomeContactFooter = () => {
         })
         .then(res => res.json())
         .then(res => console.log(res))
-        // console.log("isSubmitSuccessful", isSubmitSuccessful);
-        // reset();
+        reset({
+                name: '',
+                email: '',
+                message: ''
+            });
     };
 
-    // useEffect(() => {
-    //     if (formState.isSubmitSuccessful === true) {
-    //       // do the your logic here
-    //     }
-    //   }, [formState]);
 
     return (
         <div className="contactfooter" id="kontakt">
