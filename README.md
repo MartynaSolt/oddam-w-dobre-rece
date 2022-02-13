@@ -1,4 +1,9 @@
-# Getting Started with Create React App
+# About app
+
+Oddam w dobre ręce is page, where you can give things back to those who need them more. Page is built with Create React App. 
+**Unfortunately, IT'S NOT RESPONSIVE YET, so it's best to view it zoomed out to 65-70%.**
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
